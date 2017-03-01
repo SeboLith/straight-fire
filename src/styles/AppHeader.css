@@ -1,0 +1,72 @@
+/*-----------------------------------------------------------------------------------------------------
+ * AppHeader.scss
+ ----------------------------------------------------------------------------------------------------*/
+
+header {
+    width: 100%;
+    z-index: 5;
+    background-color: rgba(43, 62, 90, 0.2) !important;
+    transition: background .3s, padding .3s;
+    position: fixed;
+    top: 0;
+    padding: 40px 50px;
+}
+
+.logo {
+    position: relative;
+    z-index: 2;
+    top: 0;
+    left: 20px;
+    display: inline-block;
+}
+
+.nav-buttons {
+    position: absolute;
+    top: 15px;
+    left: auto;
+    right: 20px;
+    width: auto;
+    transition: all .3s;
+}
+
+.rounded-button {
+    transition: background .3s, color .3s, border .3s;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: .875em;
+    line-height: normal;
+    outline: none;
+}
+
+.sign-in {
+    border: 1px solid #c75c5c;
+    background-color: #c75c5c;
+    color: #f5cf87;
+}
+
+.sign-in:hover {
+    background-color: transparent;
+    border: 1px solid #f5cf87;
+    font-weight: 900;
+}
+
+.nav-buttons.scrolled {
+    top: -4px;
+}
+
+header.scrolled {
+    background-color: rgba(43, 62, 90, 1) !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.clear {
+    background-color: transparent;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}

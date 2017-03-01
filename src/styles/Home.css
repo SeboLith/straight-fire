@@ -1,0 +1,32 @@
+/*-----------------------------------------------------------------------------------------------------
+ * Home.scss
+ ----------------------------------------------------------------------------------------------------*/
+
+.product {
+    padding-top: 25px;
+    min-height: 280px;
+    color: #444444 !important;
+}
+
+.product-name {
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: 600 !important;
+    line-height: 20px;
+    min-height: 20px;
+    font-weight: normal;
+}
+
+.product-description {
+    font-size: 1em;
+    margin-top: 20px;
+}
+
+.product-price {
+    font-weight: 600 !important;
+    color: #6a6f71;
+}

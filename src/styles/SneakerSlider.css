@@ -1,0 +1,17 @@
+/*-----------------------------------------------------------------------------------------------------
+ * SneakerSlider.scss
+ ----------------------------------------------------------------------------------------------------*/
+
+.sneaker-slider {
+    margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+    margin-top: -512px;
+    margin-bottom: 200px;
+}
+
+.slick-slide img {
+    width: 800px;
+    height: 515px;
+    overflow: hidden
+}
