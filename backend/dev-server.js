@@ -33,6 +33,7 @@ app.use(function (req, res, next) {
 	// Website you wish to allow to connect
 	var allowedOrigins = ['http://localhost:3000'];
 	var origin = req.headers.origin;
+
 	if (allowedOrigins.indexOf(origin) > -1) {
 		res.setHeader('Access-Control-Allow-Origin', origin);
 	}
