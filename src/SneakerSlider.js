@@ -25,7 +25,7 @@ class SneakerSlider extends React.Component {
     };
 
     // get the list of sneakers in the sneakers directory
-    axios.get(apiRoutes.localDev)
+    axios.get(apiRoutes.remoteDev)
       .then((response) => {
         // extracts file extension for a given string
         const extRegex = /(?:\.([^.]+))?$/;
