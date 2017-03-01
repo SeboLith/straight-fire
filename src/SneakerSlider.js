@@ -19,13 +19,12 @@ class SneakerSlider extends React.Component {
 
   getSneakerImages() {
 
-    const apiRoutes = {
-      localDev: 'http://127.0.0.1:8090/api/kicks',
-      remoteDev: 'https://straigit-fire.herokuapp.com/api/kicks'
-    };
+    const apiRoute = process.env.NODE_ENV === 'development'
+      ? 'http://127.0.0.1:8090/api/kicks'
+      : 'https://straigit-fire.herokuapp.com/api/kicks';
 
     // get the list of sneakers in the sneakers directory
-    axios.get(apiRoutes.remoteDev)
+    axios.get(apiRoute)
       .then((response) => {
         // extracts file extension for a given string
         const extRegex = /(?:\.([^.]+))?$/;
