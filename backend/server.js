@@ -69,6 +69,12 @@ app.use(function (req, res, next) {
 	// to the API (e.g. in case you use sessions)
 	res.setHeader('Access-Control-Allow-Credentials', true);
 
+	// if 'Cache-Control' header isn't set, set it for 7 days
+	if (!res.getHeader('Cache-Control')) {
+		var maxAge = 86400000*7;
+		res.setHeader('Cache-Control', 'public, max-age=' + (maxAge));
+	}
+
 	// Pass to next layer of middleware
 	next();
 });
