@@ -36,7 +36,7 @@ if (cluster.isMaster) {
 			process.on(signal, () => {
 				console.log(`Got ${signal}, stopping workers...`);
 				stopping = true;
-				cluster.disconnect( () => {
+				cluster.disconnect(() => {
 					console.log("All workers stopped, exiting.");
 					process.exit(0);
 				});
@@ -44,6 +44,4 @@ if (cluster.isMaster) {
 		});
 	}
 } else
-	(production ?
-	require('./server') :
-	require('./dev-server'));
+	require('./server');

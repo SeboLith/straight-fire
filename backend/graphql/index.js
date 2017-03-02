@@ -1,15 +1,18 @@
-import { buildSchema } from 'graphql';
+import {
+  GraphQLObjectType,
+  GraphQLSchema
+} from 'graphql';
 
-// Construct a schema, using GraphQL schema language
-export let schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
+import mutations from './mutations';
+import queries from './queries';
 
-// The root provides a resolver function for each API endpoint
-export let root = {
-  hello: () => {
-    return 'Hello world!';
-  },
-};
+export default new GraphQLSchema({
+  query: new GraphQLObjectType({
+    name: 'Query',
+    fields: queries
+  }),
+  mutation: new GraphQLObjectType({
+    name: 'Mutation',
+    fields: mutations
+  })
+});
