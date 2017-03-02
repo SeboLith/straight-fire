@@ -36,7 +36,7 @@
     "start": "NODE_ENV=production concurrently \"npm run prodbuild\" \"npm run server\"",
     "devbuild": "react-scripts start",
     "prodbuild": "react-scripts build",
-    "server": "babel-node backend/cluster",
+    "server": "./node_modules/.bin/babel-node backend/cluster",
     "test": "react-scripts test --env=jsdom"
   }
 }
