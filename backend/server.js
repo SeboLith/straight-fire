@@ -60,7 +60,7 @@ app.use(function (req, res, next) {
 	}
 
 	// Request methods you wish to allow
-	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+	res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
 
 	// Request headers you wish to allow
 	res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
@@ -79,7 +79,8 @@ app.use(function (req, res, next) {
 	next();
 });
 
-// Register server-side rendering middleware
+
+// Routing
 // -----------------------------------------------------------------------------
 // since this file is not es6 compatible, when importing files with es6 code that export default -- call the default method
 const appRouter = require('../src/routes');
@@ -118,7 +119,7 @@ staticFiles.forEach(file => {
 });
 
 /**
- * returns the names of the files in the images/kicks directory
+ * returns the names of the files in the "images/kicks" directory
  */
 app.get('/api/kicks', (req, res) => {
 
