@@ -8,6 +8,7 @@ const express = require('express');
 const helmet = require('helmet')
 const bodyParser = require('body-parser');
 const http = require('http');
+const https = require('https');
 const path = require('path');
 const fs = require('fs');
 const compression = require('compression');
@@ -174,7 +175,13 @@ app.server.listen(port, () => {
  * Keep the app alive by calling it every 30 seconds
  */
 function keepAwake() {
-	setInterval(function () {
-		http.get("https://straight-fire.herokuapp.com/");
-	}, 30000); // every 30 seconds (30000)
+
+	const localPorts = ['3000', '8090'];
+
+	// if we're not on localhost, ping the application
+	if (localPorts.indexOf(port) < 0) {
+		setInterval(function () {
+			https.get("https://straight-fire.herokuapp.com/");
+		}, 30000); // every 30 seconds (30000)
+	}
 }

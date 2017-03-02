@@ -16,6 +16,7 @@
     "fs": "^0.0.1-security",
     "helmet": "^3.4.1",
     "http": "^0.0.0",
+    "https": "^1.0.0",
     "import-export": "^1.0.1",
     "material-ui": "^0.17.0",
     "path": "^0.12.7",
