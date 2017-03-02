@@ -5,6 +5,7 @@ require.extensions['.css'] = () => {
 };
 
 const express = require('express');
+var graphqlHTTP = require('express-graphql');
 const helmet = require('helmet')
 const bodyParser = require('body-parser');
 const http = require('http');
@@ -17,6 +18,8 @@ const reactRouter = require('react-router');
 const reactDomServer = require('react-dom/server');
 const injectTapEventPlugin = require('react-tap-event-plugin');
 const app = express();
+
+var { schema, root } = require('./graphql');
 
 
 // Needed for onTouchTap
@@ -52,7 +55,7 @@ app.use(compression());
 app.use(function (req, res, next) {
 
 	// Website you wish to allow to connect
-	var allowedOrigins = ['http://localhost:3000', 'http://localhost:8090', 'https://straight-fire.herokuapp.com'];
+	var allowedOrigins = ['http://localhost:3000', 'http://localhost:8090', 'https://straight-fire.herokuapp.com', 'http://www.straight-fire.com'];
 	var origin = req.headers.origin;
 
 	if (allowedOrigins.indexOf(origin) > -1) {
@@ -138,6 +141,13 @@ app.get('/api/kicks', (req, res) => {
 	});
 });
 
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  pretty: true,
+  graphiql: true,
+}));
+
 /**
  * handles all other calls
  */
@@ -172,7 +182,7 @@ let port = app.get('port');
 
 app.server.listen(port, () => {
 
-	console.log(`Listening on port: ${port}/`); // eslint-disable-line no-console
+	console.log(`Listening on port: ${port}`); // eslint-disable-line no-console
 
 	keepAwake();
 });

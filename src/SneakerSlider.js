@@ -22,7 +22,7 @@ class SneakerSlider extends React.Component {
     const apiRoute = (window.location.host === 'localhost:3000'
       || window.location.host === 'localhost:8090' )
       ? 'http://127.0.0.1:8090/api/kicks'
-      : 'https://straight-fire.herokuapp.com/api/kicks';
+      : 'http://www.straight-fire.com/api/kicks';
 
     // get the list of sneakers in the sneakers directory
     axios.get(apiRoute)

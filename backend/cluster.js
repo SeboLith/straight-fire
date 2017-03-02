@@ -1,25 +1,49 @@
-var cluster = require('cluster');
+const cluster = require("cluster");
+const stopSignals = [
+	"SIGHUP", "SIGINT", "SIGQUIT", "SIGILL", "SIGTRAP", "SIGABRT",
+	"SIGBUS", "SIGFPE", "SIGUSR1", "SIGSEGV", "SIGUSR2", "SIGTERM"
+];
+const production = ( process.env.NODE_ENV === "production" );
+
+let stopping = false;
+
+cluster.on("disconnect", (worker) => {
+	if (production) {
+		if (!stopping) {
+			cluster.fork();
+		} else {
+			process.exit(1);
+		}
+	}
+});
 
 if (cluster.isMaster) {
-    var numWorkers = require('os').cpus().length;
 
-    console.log('Master cluster setting up ' + numWorkers + ' workers...');
+	const workerCount = process.env.NODE_CLUSTER_WORKERS || require('os').cpus().length;
 
-    for (var i = 0; i < numWorkers; i++) {
-        cluster.fork();
-    }
+	console.log(`Starting ${workerCount} workers...`);
 
-    cluster.on('online', function (worker) {
-        console.log('Worker ' + worker.process.pid + ' is online');
-    });
+	for (let i = 0; i < workerCount; i++) {
+		cluster.fork();
+	}
 
-    cluster.on('exit', function (worker, code, signal) {
-        console.log('Worker ' + worker.process.pid + ' died with code: ' + code + ', and signal: ' + signal);
-        console.log('Starting a new worker');
-        cluster.fork();
-    });
-} else {
-    (process.env.NODE_ENV === 'production' ?
-        require('./server') :
-        require('./dev-server'));
-}
+	cluster.on('online', (worker) => {
+		console.log('Worker ' + worker.process.pid + ' is online');
+	});
+
+	if (production) {
+		stopSignals.forEach((signal) => {
+			process.on(signal, () => {
+				console.log(`Got ${signal}, stopping workers...`);
+				stopping = true;
+				cluster.disconnect( () => {
+					console.log("All workers stopped, exiting.");
+					process.exit(0);
+				});
+			});
+		});
+	}
+} else
+	(production ?
+	require('./server') :
+	require('./dev-server'));
