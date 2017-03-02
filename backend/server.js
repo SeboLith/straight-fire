@@ -16,6 +16,8 @@ const reactRouter = require('react-router');
 const reactDomServer = require('react-dom/server');
 const injectTapEventPlugin = require('react-tap-event-plugin');
 const app = express();
+
+
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
@@ -32,6 +34,7 @@ global.navigator.userAgent = global.navigator.userAgent || 'all';
 // -----------------------------------------------------------------------------
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 /**
  * dnsPrefetchControl controls browser DNS prefetching
  * frameguard to prevent clickjacking
@@ -48,7 +51,7 @@ app.use(compression());
 app.use(function (req, res, next) {
 
 	// Website you wish to allow to connect
-	var allowedOrigins = ['http://localhost:3000', 'http://localhost:8090', 'https://straight-fire.herokuapp.com', 'straight-fire.herokuapp.com'];
+	var allowedOrigins = ['http://localhost:3000', 'http://localhost:8090', 'https://straight-fire.herokuapp.com'];
 	var origin = req.headers.origin;
 
 	if (allowedOrigins.indexOf(origin) > -1) {
@@ -160,6 +163,18 @@ app.set('port', (process.env.PORT || 8090));
 let port = app.get('port');
 
 app.server.listen(port, () => {
-	let host = app.get('ip');
-	console.log(`Find the server at: http://${host}:${port}/`); // eslint-disable-line no-console
+
+	console.log(`Listening on port: ${port}/`); // eslint-disable-line no-console
+
+	keepAwake();
 });
+
+/**
+ * When your app is asleep, resources will have to spin up, resulting in a suboptimal user experience.
+ * Keep the app alive by calling it every 30 seconds
+ */
+function keepAwake() {
+	setInterval(function () {
+		http.get("https://straight-fire.herokuapp.com/");
+	}, 30000); // every 30 seconds (30000)
+}
