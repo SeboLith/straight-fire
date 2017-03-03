@@ -7,6 +7,7 @@ import http from 'http';
 import https from 'https';
 import path from 'path';
 import fs from 'fs';
+import S3FS from 's3fs';
 import compression from 'compression';
 import react from 'react';
 import { match, RouterContext, createRoutes } from 'react-router';
@@ -22,6 +23,25 @@ const app = express();
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
+
+// Setup AWS bucket
+// -----------------------------------------------------------------------------
+const straightFireBucket = new S3FS('straight-fire', {
+	accessKeyId: process.env.SF_AWS_ID,
+	secretAccessKey: process.env.SF_AWS_KEY
+});
+
+let kicksPaths = [];
+
+straightFireBucket.readdirp('kicks').then(function (files) {
+	kicksPaths = files.map((file) => {
+		var imgPath = `https://s3.amazonaws.com/straight-fire/kicks/${file}`;
+		return imgPath;
+	});
+}, function (reason) {
+	// Something went wrong
+	console.log('reason', reason);
+});
 
 // Connect mongo database
 // -----------------------------------------------------------------------------
@@ -122,23 +142,10 @@ staticFiles.forEach(file => {
 });
 
 /**
- * returns the names of the files in the "images/kicks" directory
+ * returns the names of the files in the "straight-fire/kicks" s3 bucket
  */
 app.get('/api/kicks', (req, res) => {
-
-	const kicksPath = path.join(__dirname, '../build/images/kicks');
-
-	if (!fs.existsSync(kicksPath)) {
-		console.log("no dir ", kicksPath);
-		return;
-	}
-
-	fs.readdir(kicksPath, function (err, files) {
-		if (err) {
-			error(err, res);
-		}
-		res.status(200).send(files);
-	});
+	res.status(200).send(kicksPaths);
 });
 
 /**

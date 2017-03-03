@@ -9,7 +9,7 @@ class SneakerSlider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      files: []
+      filePaths: []
     };
   }
 
@@ -27,14 +27,7 @@ class SneakerSlider extends React.Component {
     // get the list of sneakers in the sneakers directory
     axios.get(apiRoute)
       .then((response) => {
-        // extracts file extension for a given string
-        const extRegex = /(?:\.([^.]+))?$/;
-
-        let validFiles = response.data.filter((fileName) => {
-          return extRegex.exec(fileName)[1] === 'jpg';
-        });
-
-        this.setState({ files: validFiles });
+        this.setState({ filePaths: response.data });
       }).catch((err) => {
         console.log('err', err);
       });
@@ -50,15 +43,14 @@ class SneakerSlider extends React.Component {
       speed: 500,
       className: 'sneaker-slider'
     };
-
-    const kicks = this.state.files.map((file, index) => {
-      let image = <div key={String(index)}><img src={"./images/kicks/" + file} alt={file} ref="simpleSquare"></img></div>;
+    const kicks = this.state.filePaths.map((filePath, index) => {
+      let image = <div key={String(index)}><img src={filePath} alt={filePath} ref="simpleSquare"></img></div>;
       return image;
     });
 
     return (
       <div>
-        {this.state.files.length &&
+        {this.state.filePaths.length &&
           <Slider {...settings}>
             {kicks}
           </Slider>}
