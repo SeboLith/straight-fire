@@ -22,8 +22,8 @@ class SneakerSlider extends React.Component {
     let protocol = location.protocol;
     let hostname = window.location.hostname;
 
-    const apiRoute = (window.location.host === 'localhost:3000'
-      || window.location.host === 'localhost:8090')
+    const apiRoute = ( (window.location.host === 'localhost:3000')
+      || (window.location.host === 'localhost:8090') )
       ? 'http://localhost:8090/api/kicks'
       : `${protocol}//${hostname}/api/kicks`;
 
