@@ -56,7 +56,13 @@ app.use(compression());
 app.use(function (req, res, next) {
 
 	// Website you wish to allow to connect
-	var allowedOrigins = ['http://localhost:3000', 'http://localhost:8090', 'https://straight-fire.herokuapp.com', 'http://www.straight-fire.com'];
+	var allowedOrigins = [
+		'http://localhost:3000',
+		'http://localhost:8090',
+		'https://straight-fire.herokuapp.com',
+		'http://www.straight-fire.com',
+		'http://straight-fire.com'
+	];
 	var origin = req.headers.origin;
 
 	if (allowedOrigins.indexOf(origin) > -1) {
