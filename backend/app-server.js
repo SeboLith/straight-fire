@@ -197,9 +197,9 @@ function keepAwake() {
 	const localPorts = ['3000', '8090'];
 
 	// if we're not on localhost, ping the application
-	if (localPorts.indexOf(port) < 0) {
-		setInterval(function () {
-			https.get("https://straight-fire.herokuapp.com/");
-		}, 30000); // every 30 seconds (30000)
-	}
+	// if (localPorts.indexOf(port) < 0) {
+	// 	setInterval(function () {
+	// 		https.get("https://straight-fire.herokuapp.com/");
+	// 	}, 30000); // every 30 seconds (30000)
+	// }
 }
