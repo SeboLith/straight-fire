@@ -19,10 +19,13 @@ class SneakerSlider extends React.Component {
 
   getSneakerImages() {
 
+    let protocol = location.protocol;
+    let hostname = window.location.hostname;
+
     const apiRoute = (window.location.host === 'localhost:3000'
-      || window.location.host === 'localhost:8090' )
+      || window.location.host === 'localhost:8090')
       ? 'http://localhost:8090/api/kicks'
-      : 'http://www.straight-fire.com/api/kicks';
+      : `${protocol}//${hostname}/api/kicks`;
 
     // get the list of sneakers in the sneakers directory
     axios.get(apiRoute)
