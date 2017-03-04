@@ -35,7 +35,8 @@
   },
   "scripts": {
     "dev": "NODE_ENV=development concurrently \"npm run devbuild\" \"npm run server\"",
-    "start": "NODE_ENV=production concurrently \"npm run prodbuild\" \"npm run server\"",
+    "localprod": "NODE_ENV=production concurrently \"npm run prodbuild\" \"npm run server\"",
+    "start": "NODE_ENV=production npm run server",
     "devbuild": "react-scripts start",
     "prodbuild": "react-scripts build",
     "server": "node backend/cluster",
