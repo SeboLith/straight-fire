@@ -4,8 +4,4 @@ require.extensions['.css'] = () => {
 	return;
 };
 
-const production = ( process.env.NODE_ENV === "production" );
-
-(production ?
-	require('./app-server') :
-	require('./api-server'));
+require('./app-server');
