@@ -5,152 +5,96 @@ import SneakerSlider from './SneakerSlider';
 
 import './styles/Home.css';
 
-const styles = {
-  containerWidth: {
-    paddingTop: '621px'
-  },
-  listStyles: {
-    width: '80%',
-    margin: 'auto'
-  },
-  opacity1: {
-    opacity: '1; display: block'
-  },
-  owlWrapper: {
-    width: '82px; left: 0px; display: block'
-  },
-  owlItem: {
-    width: '82px'
-  },
-  displayNone: {
-    display: 'none'
-  }
-}
-
 class Home extends React.Component {
   render() {
     return (
-      <main className="home" style={styles.containerWidth}>
+      <main className="home">
         <SneakerSlider></SneakerSlider>
-        <div className="product-list col-sm row" style={styles.listStyles}>
-          <div className="col-sm product port">
-            <Link to="/gel-feather-glide-4/"
-              title="GEL-FEATHER GLIDE 4"
-              className="productMainLink"
-              data-category="mens">
+        <div className="row">
+          <div className="col-xs">
+            <div className="product-container">
+              <p className="product-name">Nike Air Presto Ultra Flyknit</p>
+              <Link to="/gel-feather-glide-4/"
+              title="Nike Air Presto Ultra Flyknit">
               <img className="primary-image"
-                width="270"
-                height="203"
-                src="https://asics.scene7.com/is/image/asics/T6K1N_9096_0010266120_RT?$productlist$"
-                alt="GEL-FEATHER GLIDE 4"
-                title="GEL-FEATHER GLIDE 4">
+                src="https://s3.amazonaws.com/straight-fire/kicks/nike-presto-shoes-1.jpg"
+                alt="Nike Air Presto Ultra Flyknit"
+                title="Nike Air Presto Ultra Flyknit">
               </img>
             </Link>
-            <p className="product-name">GEL-FEATHER GLIDE 4</p>
             <p className="product-description">Athletic Shoes Fast Running Athletic Shoes</p>
             <p className="product-price">
               $180.00
             </p>
+            </div>
           </div>
-
-          <div className="col-sm product port">
-            <Link to="/gel-feather-glide-4/"
-              title="GEL-FEATHER GLIDE 4"
-              className="productMainLink"
-              data-category="mens">
+          <div className="col-xs">
+            <div className="product-container">
+              <p className="product-name">Nike Air Foamposite One Metallic Copper</p>
+              <Link to="/gel-feather-glide-4/"
+              title="Nike Air Foamposite One Metallic Copper">
               <img className="primary-image"
-                width="270"
-                height="203"
-                src="https://asics.scene7.com/is/image/asics/T6K1N_9096_0010266120_RT?$productlist$"
-                alt="GEL-FEATHER GLIDE 4"
-                title="GEL-FEATHER GLIDE 4">
+                src="https://s3.amazonaws.com/straight-fire/kicks/air-foamposite-one-shoe-copper.jpg"
+                alt="Nike Air Foamposite One Metallic Copper"
+                title="Nike Air Foamposite One Metallic Copper">
               </img>
             </Link>
-            <p className="product-name">GEL-FEATHER GLIDE 4</p>
             <p className="product-description">Athletic Shoes Fast Running Athletic Shoes</p>
             <p className="product-price">
               $180.00
             </p>
+            </div>
           </div>
-
-          <div className="col-sm product port">
-            <Link to="/gel-feather-glide-4/"
-              title="GEL-FEATHER GLIDE 4"
-              className="productMainLink"
-              data-category="mens">
+          <div className="col-xs">
+            <div className="product-container">
+              <p className="product-name">Nike Air Force 1 '07</p>
+              <Link to="/gel-feather-glide-4/"
+              title="Nike Air Force 1 '07">
               <img className="primary-image"
-                width="270"
-                height="203"
-                src="https://asics.scene7.com/is/image/asics/T6K1N_9096_0010266120_RT?$productlist$"
-                alt="GEL-FEATHER GLIDE 4"
-                title="GEL-FEATHER GLIDE 4">
+                src="https://s3.amazonaws.com/straight-fire/kicks/air-force-1-07-womens-shoe.jpg"
+                alt="Nike Air Force 1 '07"
+                title="Nike Air Force 1 '07">
               </img>
             </Link>
-            <p className="product-name">GEL-FEATHER GLIDE 4</p>
             <p className="product-description">Athletic Shoes Fast Running Athletic Shoes</p>
             <p className="product-price">
               $180.00
             </p>
+            </div>
           </div>
-
-          <div className="col-sm product port">
-            <Link to="/gel-feather-glide-4/"
-              title="GEL-FEATHER GLIDE 4"
-              className="productMainLink"
-              data-category="mens">
+          <div className="col-xs">
+            <div className="product-container">
+              <p className="product-name">GEL-FEATHER GLIDE 4</p>
+              <Link to="/gel-feather-glide-4/"
+              title="GEL-FEATHER GLIDE 4">
               <img className="primary-image"
-                width="270"
-                height="203"
-                src="https://asics.scene7.com/is/image/asics/T6K1N_9096_0010266120_RT?$productlist$"
+                src="https://s3.amazonaws.com/straight-fire/kicks/air-huarache-mens-shoe.jpg"
                 alt="GEL-FEATHER GLIDE 4"
                 title="GEL-FEATHER GLIDE 4">
               </img>
             </Link>
-            <p className="product-name">GEL-FEATHER GLIDE 4</p>
             <p className="product-description">Athletic Shoes Fast Running Athletic Shoes</p>
             <p className="product-price">
               $180.00
             </p>
+            </div>
           </div>
-
-          <div className="col-sm product port">
-            <Link to="/gel-feather-glide-4/"
-              title="GEL-FEATHER GLIDE 4"
-              className="productMainLink"
-              data-category="mens">
+          <div className="col-xs">
+            <div className="product-container">
+              <p className="product-name">GEL-FEATHER GLIDE 4</p>
+              <Link to="/gel-feather-glide-4/"
+              title="GEL-FEATHER GLIDE 4">
               <img className="primary-image"
-                width="270"
-                height="203"
-                src="https://asics.scene7.com/is/image/asics/T6K1N_9096_0010266120_RT?$productlist$"
+                src="https://s3.amazonaws.com/straight-fire/kicks/air-jordan-1-retro-high-sw-23-big-kids-shoe.jpg"
                 alt="GEL-FEATHER GLIDE 4"
                 title="GEL-FEATHER GLIDE 4">
               </img>
             </Link>
-            <p className="product-name">GEL-FEATHER GLIDE 4</p>
             <p className="product-description">Athletic Shoes Fast Running Athletic Shoes</p>
             <p className="product-price">
               $180.00
             </p>
-          </div>
-
-          <div className="col-sm product port">
-            <Link to="/gel-feather-glide-4/"
-              title="GEL-FEATHER GLIDE 4"
-              className="productMainLink"
-              data-category="mens">
-              <img className="primary-image"
-                width="270"
-                height="203"
-                src="https://asics.scene7.com/is/image/asics/T6K1N_9096_0010266120_RT?$productlist$"
-                alt="GEL-FEATHER GLIDE 4"
-                title="GEL-FEATHER GLIDE 4">
-              </img>
-            </Link>
-            <p className="product-name">GEL-FEATHER GLIDE 4</p>
-            <p className="product-description">Athletic Shoes Fast Running Athletic Shoes</p>
-            <p className="product-price">
-              $180.00
-            </p>
+            </div>
           </div>
         </div>
       </main>

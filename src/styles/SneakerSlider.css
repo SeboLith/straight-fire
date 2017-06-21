@@ -5,13 +5,16 @@
 .sneaker-slider {
     margin-left: auto;
 	margin-right: auto;
-	width: 800px;
+	width: 1200px;
+    height: 591px;
     margin-top: -512px;
     margin-bottom: 200px;
+    padding: 0 200px;
+    overflow: hidden;
 }
 
 .slick-slide img {
     width: 800px;
-    height: 515px;
-    overflow: hidden
+    height: auto;
+    margin-top: -150px;
 }
