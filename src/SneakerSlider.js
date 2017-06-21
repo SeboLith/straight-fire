@@ -43,6 +43,7 @@ class SneakerSlider extends React.Component {
       speed: 500,
       className: 'sneaker-slider'
     };
+
     const kicks = this.state.filePaths.map((filePath, index) => {
       let image = <div key={String(index)}><img src={filePath} alt={filePath} ref="simpleSquare"></img></div>;
       return image;
