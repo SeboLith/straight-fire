@@ -5,7 +5,7 @@
 footer {
 	background: rgb(43, 62, 90);
 
-    links {
+    .links {
         width: 960px;
         margin: 0 auto;
         padding: 25px 20px 15px 20px;
@@ -44,11 +44,11 @@ footer {
                 }
             }
         }
-    }
-}
 
-footer .links ul.social {
-    margin: 0;
+        ul.social {
+            margin: 0;
+        }
+    }
 }
 
 ul.social li a {

@@ -5,7 +5,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import Routes from './routes';
 
-import './styles/CSSReset.css';
+import './styles/CSSReset.scss';
 import '../node_modules/flexboxgrid/css/flexboxgrid.min.css';
 
 // Needed for onTouchTap

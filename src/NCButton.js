@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './styles/NCButton.css';
+import './styles/NCButton.scss';
 
 class NCButton extends React.Component {
 	render() {

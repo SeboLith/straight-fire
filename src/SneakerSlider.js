@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Slider from 'react-slick';
 
-import './styles/SneakerSlider.css';
+import './styles/SneakerSlider.scss';
 
 class SneakerSlider extends React.Component {
 

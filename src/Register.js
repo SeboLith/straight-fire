@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import './styles/Register.css';
+import './styles/Register.scss';
 
 class Input extends React.Component {
 	render() {

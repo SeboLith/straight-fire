@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import './styles/ProductsDisplay.css';
+import './styles/ProductsDisplay.scss';
 
 class Product extends React.Component {
 	render() {

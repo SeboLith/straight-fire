@@ -78,7 +78,7 @@ app.use(function (req, res, next) {
 	// Website you wish to allow to connect
 	var allowedOrigins = [
 		'http://localhost:3000',
-		'http://localhost:8090',
+		'http://localhost:9000',
 		'https://straight-fire.herokuapp.com',
 		'http://www.straight-fire.com',
 		'http://straight-fire.com'

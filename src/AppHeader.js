@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import './styles/AppHeader.css';
+import './styles/AppHeader.scss';
 
 class AppHeader extends React.Component {
 
