@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import bodyParser from 'body-parser';
 import http from 'http';
 import https from 'https';
+import cors from 'cors';
 import path from 'path';
 import fs from 'fs';
 import S3FS from 's3fs';
@@ -54,9 +55,14 @@ global.navigator.userAgent = global.navigator.userAgent || 'all';
 
 // Register Node.js middleware
 // -----------------------------------------------------------------------------
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+/**
+ * CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+ */
+app.use(cors());
 /**
  * dnsPrefetchControl controls browser DNS prefetching
  * frameguard to prevent clickjacking
@@ -72,14 +78,13 @@ app.use(compression());
 // Add headers
 app.use(function (req, res, next) {
 
-    // Website you wish to allow to connect var allowedOrigins =
-    // ['http://localhost:3000', 'http://localhost:9000',
-    // 'https://straight-fire.herokuapp.com', 'http://www.straight-fire.com',
-    // 'http://straight-fire.com']; var origin = req.headers.origin ||
-    // (req.headers['x-forwarded-proto'] + '://' + req.headers.host); if
-    // (allowedOrigins.indexOf(origin) > -1) {
-    // res.setHeader('Access-Control-Allow-Origin', '*'); }
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    // Website you wish to allow to connect
+    var allowedOrigins = ['http://localhost:3000', 'http://localhost:9000', 'https://straight-fire.herokuapp.com', 'http://www.straight-fire.com', 'http://straight-fire.com'];
+    var origin = req.headers.origin;
+
+    if (allowedOrigins.indexOf(origin) > -1) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
@@ -89,8 +94,9 @@ app.use(function (req, res, next) {
 
     // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
-    // res.setHeader('Access-Control-Allow-Credentials', true); if 'Cache-Control'
-    // header isn't set, set it for 7 days
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // if 'Cache-Control' header isn't set, set it for 7 days
     if (!res.getHeader('Cache-Control')) {
         var maxAge = 86400000 * 7;
         res.setHeader('Cache-Control', 'public, max-age=' + (maxAge));
