@@ -6,7 +6,6 @@ footer {
 	background: rgb(43, 62, 90);
 
     .links {
-        width: 960px;
         margin: 0 auto;
         padding: 25px 20px 15px 20px;
 
@@ -28,7 +27,7 @@ footer {
                 li {
                     a {
                         color: #fff;
-                        margin: 0 10px;
+                        margin: 0 15px 0 10px;
                         vertical-align: bottom;
                         text-decoration: none;
                         cursor: pointer;
@@ -51,15 +50,20 @@ footer {
     }
 }
 
-ul.social li a {
+ul.social li {
+    margin-left: 20px;
+
+    a {
     display: block;
     width: 30px;
     height: 30px;
     margin: 0 10px 0 0;
     text-indent: -10000px;
 }
+}
 
 footer .copyright {
+    padding-top: 15px;
 	text-align: center;
     clear: both;
 }
