@@ -4,14 +4,37 @@
  * AppContainer.scss
  ----------------------------------------------------------------------------------------------------*/
 
+html {
+    position: relative;
+    min-height: 100%;
+}
 body {
     font-family: 'Noto Sans', sans-serif !important;
-}
-
-.float-left {
-    float: left;
-}
-
-.float-right {
-    float: right;
+    margin: 0 0 101px; /* bottom = footer height */
+    .row {
+        margin-top: -200px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #fff;
+        padding-top: 200px;
+    }
+    .float-left {
+        float: left;
+    }
+    .float-right {
+        float: right;
+    }
+    .rounded-button {
+        transition: background .3s, color .3s, border .3s;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-transform: uppercase;
+        text-align: center;
+        text-decoration: none;
+        font-weight: 300;
+        font-size: .875em;
+        line-height: normal;
+        outline: none;
+    }
 }

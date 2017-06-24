@@ -3,25 +3,26 @@
  ----------------------------------------------------------------------------------------------------*/
 
 footer {
-	background: rgb(43, 62, 90);
-
+    background: rgb(43, 62, 90);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
     .links {
         margin: 0 auto;
         padding: 25px 20px 15px 20px;
-
         ul {
             margin: 0;
             color: #af7647;
             list-style-type: disc;
             cursor: default;
-
             li {
                 display: block;
                 float: left;
                 list-style-type: disc;
             }
         }
-
         .float-left {
             ul {
                 li {
@@ -33,53 +34,45 @@ footer {
                         cursor: pointer;
                     }
                 }
-
                 li:before {
                     content: ' - ';
                 }
-
                 li:first-child:before {
                     content: '';
                 }
             }
         }
-
         ul.social {
             margin: 0;
+            li {
+                margin-left: 20px;
+                a {
+                    display: block;
+                    width: 30px;
+                    height: 30px;
+                    margin: 0 10px 0 0;
+                    text-indent: -10000px;
+                }
+            }
         }
     }
-}
-
-ul.social li {
-    margin-left: 20px;
-
-    a {
-    display: block;
-    width: 30px;
-    height: 30px;
-    margin: 0 10px 0 0;
-    text-indent: -10000px;
-}
-}
-
-footer .copyright {
-    padding-top: 15px;
-	text-align: center;
-    clear: both;
-}
-
-footer .copyright p {
-	display: inline-block;
-    color: #fff;
-    font-size: 93%;
-}
-
-.clear-footer {
-    display: block;
-    clear: both;
-    height: 0px;
-    line-height: 0px;
-    font-size: 0%;
-    padding: 0;
-    margin: 0;
+    .copyright {
+        padding-top: 15px;
+        text-align: center;
+        clear: both;
+        p {
+            display: inline-block;
+            color: #fff;
+            font-size: 93%;
+        }
+    }
+    .clear-footer {
+        display: block;
+        clear: both;
+        height: 0px;
+        line-height: 0px;
+        font-size: 0%;
+        padding: 0;
+        margin: 0;
+    }
 }
