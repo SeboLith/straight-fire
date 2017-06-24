@@ -45,7 +45,11 @@ class SneakerSlider extends React.Component {
     };
 
     const kicks = this.state.filePaths.map((filePath, index) => {
-      let image = <div key={String(index)}><img src={filePath} alt={filePath} ref="simpleSquare"></img></div>;
+      // each dom repeater needs a unique key
+      let image = <div key={String(index)}>
+                    <img key={String(index)} src={filePath} alt={filePath} ref="simpleSquare">
+                    </img>
+                  </div>;
       return image;
     });
 

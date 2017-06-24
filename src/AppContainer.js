@@ -1,6 +1,7 @@
 import React from 'react';
 
 import AppHeader from './AppHeader';
+import AppFooter from './AppFooter';
 
 import './styles/AppContainer.css';
 
@@ -11,6 +12,7 @@ class AppContainer extends React.Component {
       <div className="page">
         <AppHeader />
         {this.props.children}
+        <AppFooter />
       </div>
     );
   }

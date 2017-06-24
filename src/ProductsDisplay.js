@@ -74,12 +74,13 @@ class ProductsDisplay extends React.Component {
 	render() {
 
 		const products = this.state.sneakerData.map((sneaker, index) => {
+			// each dom repeater needs a unique key
 			let product = <div className="col-xs" key={String(index)}>
 							<Product productName={sneaker.name}
-										productDescription={sneaker.description}
-										productPrice={sneaker.price}
-										productSrc={sneaker.src}
-										productLink={sneaker.link}>
+									 productDescription={sneaker.description}
+									 productPrice={sneaker.price}
+									 productSrc={sneaker.src}
+									 productLink={sneaker.link}>
 							</Product>
 						</div>;
 		return product;

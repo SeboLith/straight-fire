@@ -8,6 +8,10 @@ body {
     font-family: 'Noto Sans', sans-serif !important;
 }
 
-main.home {
-    background-color: #F5F5F6;
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
 }
