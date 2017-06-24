@@ -75,9 +75,9 @@ app.use(function (req, res, next) {
     // Website you wish to allow to connect
     var allowedOrigins = ['http://localhost:3000', 'http://localhost:9000', 'https://straight-fire.herokuapp.com', 'http://www.straight-fire.com', 'http://straight-fire.com'];
     var origin = req.headers.origin || (req.headers['x-forwarded-proto'] + '//' + req.headers.host);
-    console.log('req.headers', req.headers);
+
     if (allowedOrigins.indexOf(origin) > -1) {
-        res.setHeader('Access-Control-Allow-Origin', origin);
+        res.setHeader('Access-Control-Allow-Origin', '*');
     }
 
     // Request methods you wish to allow
